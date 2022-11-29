@@ -1,53 +1,84 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
- 
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Simple Calculator using HTML, CSS and JavaScript</title>
-  <link rel="stylesheet" href="styles.css">
+	<title>Table</title>
+	<link rel="stylesheet" href="style.css">
 </head>
- 
 <body>
-  <center><h1>CALCULATOR</h1></center>
- 
-<table class="calculator" >
-  <tr>
-    <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
- 
-    <!-- clearScreen() function clears all the values -->
-    <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
-  </tr>
-  <tr>
-    <!-- display() function displays the value of clicked button -->
-    <td> <input type="button" value="1" onclick="display('1')" /> </td>
-    <td> <input type="button" value="2" onclick="display('2')" /> </td>
-    <td> <input type="button" value="3" onclick="display('3')" /> </td>
-    <td> <input type="button" value="/" onclick="display('/')" /> </td>
-  </tr>
-  <tr>
-    <td> <input type="button" value="4" onclick="display('4')" /> </td>
-    <td> <input type="button" value="5" onclick="display('5')" /> </td>
-    <td> <input type="button" value="6" onclick="display('6')" /> </td>
-    <td> <input type="button" value="-" onclick="display('-')" /> </td>
-  </tr>
-  <tr>
-    <td> <input type="button" value="7" onclick="display('7')" /> </td>
-    <td> <input type="button" value="8" onclick="display('8')" /> </td>
-    <td> <input type="button" value="9" onclick="display('9')" /> </td>
-    <td> <input type="button" value="+" onclick="display('+')" /> </td>
-  </tr>
-  <tr>
-    <td> <input type="button" value="." onclick="display('.')" /> </td>
-    <td> <input type="button" value="0" onclick="display('0')" /> </td>
- 
-    <!-- calculate() function evaluates the mathematical expression -->
-    <td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
-    <td> <input type="button" value="*" onclick="display('*')" /> </td>
-  </tr>
-</table>
- 
-<script type="text/javascript" src="script.js"></script>
- 
+
+	<center>
+		<table border="4">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<td><input type="text" name="fname" id="fname"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Last Name</th>
+					<td><input type="text" name="lname" id="lname"></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="text" name="email" id="email"></td>
+				</tr>
+				<tr>
+					<th>Age</th>
+					<td><input type="text" name="age" id="age"></td>
+				</tr>
+				<tr id="btna">
+					<td colspan="2"><input type="button" name="button" id="btn" value="Add" onclick="AddRow()"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table border="4" id="show">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Age</th>
+				</tr>
+			</thead>
+		</table>
+	</center>
+
+	<script>
+
+		var list1 = [];
+		var list2 = [];
+		var list3 = [];
+		var list4 = [];
+
+		var n = 1;
+		var x = 0;
+
+		function AddRow(){
+
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+
+			list1[x] = document.getElementById("fname").value;
+			list2[x] = document.getElementById("lname").value;
+			list3[x] = document.getElementById("email").value;
+			list4[x] = document.getElementById("age").value;
+
+			var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+			var cel4 = NewRow.insertCell(3);
+
+			cel1.innerHTML = list1[x];
+			cel2.innerHTML = list2[x];
+			cel3.innerHTML = list3[x];
+			cel4.innerHTML = list4[x];
+
+			n++;
+			x++;
+		}
+
+	</script>
 </body>
- 
 </html>
